@@ -11,5 +11,13 @@
   <canvas id="tetris" width="240" height="400"></canvas>
   <script src="script.js"></script>
   <script src="app.js"></script>
+
+<div id="controls" style="position:fixed;bottom:10px;width:100%;display:flex;justify-content:center;gap:10px;z-index:20;">
+  <button onclick="playerMove(-1)" style="font-size:20px;">◀︎</button>
+  <button onclick="playerDrop()" style="font-size:20px;">▼</button>
+  <button onclick="playerMove(1)" style="font-size:20px;">▶︎</button>
+  <button onclick="playerRotate(1)" style="font-size:20px;">⟳</button>
+</div>
+
 </body>
 </html>

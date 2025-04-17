@@ -2,7 +2,40 @@ const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
 context.scale(20, 20);
 
-function arenaSweep() {
+const overlay = document.createElement('div');
+overlay.style.position = 'fixed';
+overlay.style.top = '0';
+overlay.style.left = '0';
+overlay.style.width = '100%';
+overlay.style.height = '100%';
+overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+overlay.style.display = 'none';
+overlay.style.flexDirection = 'column';
+overlay.style.justifyContent = 'center';
+overlay.style.alignItems = 'center';
+overlay.style.zIndex = '10';
+overlay.style.color = 'white';
+overlay.style.font = 'bold 32px fantasy';
+overlay.innerHTML = 'Game Over<br><button id="restartBtn" style="margin-top:20px;font-size:18px;">Restart</button>';
+document.body.appendChild(overlay);
+
+let score = 0;
+const scoreElement = document.createElement('div');
+scoreElement.style.position = 'absolute';
+scoreElement.style.top = '10px';
+scoreElement.style.left = '10px';
+scoreElement.style.color = 'white';
+scoreElement.style.font = 'bold 18px fantasy';
+scoreElement.innerText = 'Score: 0';
+document.body.appendChild(scoreElement);
+
+let animationFrameId;
+function update(time = 0) {  score += points;
+  scoreElement.innerText = 'Score: ' + score;
+}
+
+    let lines = arenaSweep();
+    updateScore(lines * 10);
   outer: for (let y = arena.length - 1; y > 0; --y) {
     for (let x = 0; x < arena[y].length; ++x) {
       if (arena[y][x] === 0) {
@@ -13,9 +46,10 @@ function arenaSweep() {
     const row = arena.splice(y, 1)[0].fill(0);
     arena.unshift(row);
     ++y;
-  }
+    ++linesCleared;
+  return linesCleared;
+}  return linesCleared;
 }
-
 function collide(arena, player) {
   const [m, o] = [player.matrix, player.pos];
   for (let y = 0; y < m.length; ++y) {
@@ -115,10 +149,14 @@ function merge(arena, player) {
 function playerDrop() {
   player.pos.y++;
   if (collide(arena, player)) {
+    overlay.style.display = 'flex';
+    cancelAnimationFrame(animationFrameId);
+    return;
     player.pos.y--;
     merge(arena, player);
     playerReset();
-    arenaSweep();
+    let lines = arenaSweep();
+    updateScore(lines * 10);
   }
   dropCounter = 0;
 }
@@ -126,6 +164,9 @@ function playerDrop() {
 function playerMove(dir) {
   player.pos.x += dir;
   if (collide(arena, player)) {
+    overlay.style.display = 'flex';
+    cancelAnimationFrame(animationFrameId);
+    return;
     player.pos.x -= dir;
   }
 }
@@ -137,6 +178,9 @@ function playerReset() {
   player.pos.x = (arena[0].length / 2 | 0) - 
                  (player.matrix[0].length / 2 | 0);
   if (collide(arena, player)) {
+    overlay.style.display = 'flex';
+    cancelAnimationFrame(animationFrameId);
+    return;
     arena.forEach(row => row.fill(0));
   }
 }
@@ -206,15 +250,28 @@ let dropCounter = 0;
 let dropInterval = 1000;
 let lastTime = 0;
 
-function update(time = 0) {
-  const deltaTime = time - lastTime;
+let animationFrameId;
+function update(time = 0) {  const deltaTime = time - lastTime;
   lastTime = time;
   dropCounter += deltaTime;
   if (dropCounter > dropInterval) {
     playerDrop();
   }
   draw();
-  requestAnimationFrame(update);
+  animationFrameId = requestAnimationFrame(update);
 }
 
 update();
+
+document.getElementById('restartBtn').addEventListener('click', () => {
+  overlay.style.display = 'none';
+  arena.forEach(row => row.fill(0));
+  score = 0;
+  updateScore(0);
+  playerReset();
+  update();
+});
+
+window.playerMove = playerMove;
+window.playerDrop = playerDrop;
+window.playerRotate = playerRotate;
