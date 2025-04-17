@@ -1,6 +1,6 @@
 # Mini's Tetris
 
-Welcome to **Mini's Tetris**, a cute and fantasy-style Tetris game made with HTML, CSS, and JavaScript.
+A cute and fantasy-style Tetris game made with HTML, CSS, and JavaScript.
 
 ## Features
 
@@ -16,10 +16,4 @@ Welcome to **Mini's Tetris**, a cute and fantasy-style Tetris game made with HTM
 2. Open `index.html` in your browser.
 3. Or host the folder on a static server to see the full PWA effect.
 
-## How to Install as PWA
-
-- Open in Chrome or Safari on mobile.
-- Tap "Add to Home Screen" to install as an app.
-
-Enjoy!
-
+Enjoy the game!

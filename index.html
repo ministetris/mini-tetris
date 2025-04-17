@@ -1,35 +1,15 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mini’s Tetris</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini's Tetris</title>
   <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#9c6cff" />
-  <style>
-    body {
-      background-color: #1a1a1a;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      color: white;
-      font-family: sans-serif;
-      text-align: center;
-      flex-direction: column;
-    }
-    img {
-      width: 200px;
-      margin-bottom: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <img src="splash.png" alt="Mini's Tetris Splash" />
-  <h1>Mini’s Tetris</h1>
-  <p>PWA version coming soon!</p>
+  <canvas id="tetris" width="240" height="400"></canvas>
+  <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
