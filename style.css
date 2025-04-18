@@ -1,13 +1,35 @@
 
 body {
-    background: url('fantasy_background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
+    font-family: 'Comic Sans MS', fantasy;
+    text-align: center;
+    background: url('bg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+.hidden {
+    display: none;
+}
+#splash {
+    padding-top: 100px;
+    font-size: 24px;
+    color: white;
 }
 canvas {
-    background: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0,0,0,0.7);
+    display: block;
+    margin: 0 auto;
+}
+.touch-controls button {
+    font-size: 20px;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: pink;
+    color: white;
+    border: none;
+}
+#score {
+    font-size: 24px;
+    color: white;
+    margin-top: 10px;
 }

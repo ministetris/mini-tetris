@@ -2,12 +2,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Mini's Tetris</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <canvas id="tetris" width="240" height="400"></canvas>
+    <div id="splash">
+        <h1>Mini’s Tetris</h1>
+        <p>게임을 시작하려면 클릭하세요!</p>
+    </div>
+    <div class="game-container hidden">
+        <canvas id="tetris" width="240" height="400"></canvas>
+        <div class="touch-controls">
+            <button id="left">←</button>
+            <button id="rotate">⟳</button>
+            <button id="right">→</button>
+            <button id="down">↓</button>
+        </div>
+        <div id="score">Score: 0</div>
+    </div>
+    <audio id="sfx-line" src="line_clear.wav" preload="auto"></audio>
+    <audio id="sfx-rotate" src="rotate.wav" preload="auto"></audio>
     <script src="script.js"></script>
 </body>
 </html>
