@@ -1,3 +1,4 @@
+
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
 context.scale(20, 20);
@@ -132,7 +133,6 @@ const colors = [
 
 playerReset();
 update();
-
 
 document.getElementById('left').addEventListener('click', () => playerMove(-1));
 document.getElementById('right').addEventListener('click', () => playerMove(1));
