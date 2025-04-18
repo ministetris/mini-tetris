@@ -1,22 +1,13 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mini's Tetris</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="icon-192.png" type="image/png">
+    <meta charset="UTF-8">
+    <title>Mini's Tetris</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="tetris" width="240" height="400"></canvas>
-  <div id="controls" style="position:fixed;bottom:10px;width:100%;display:flex;justify-content:center;gap:10px;z-index:20;">
-    <button onclick="playerMove(-1)" style="font-size:20px;">◀︎</button>
-    <button onclick="playerDrop()" style="font-size:20px;">▼</button>
-    <button onclick="playerMove(1)" style="font-size:20px;">▶︎</button>
-    <button onclick="playerRotate()" style="font-size:20px;">⟳</button>
-  </div>
-  <script src="script.js"></script>
-  <script src="app.js"></script>
+    <canvas id="tetris" width="240" height="400"></canvas>
+    <script src="script.js"></script>
 </body>
 </html>
