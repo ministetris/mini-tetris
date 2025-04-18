@@ -3,7 +3,7 @@ body {
     margin: 0;
     font-family: 'Comic Sans MS', fantasy;
     text-align: center;
-    background: url('bg.png') no-repeat center center fixed;
+    background: url('fantasy_background.png') no-repeat center center fixed;
     background-size: cover;
 }
 .hidden {
