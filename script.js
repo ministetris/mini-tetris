@@ -132,3 +132,13 @@ const colors = [
 
 playerReset();
 update();
+
+
+document.getElementById('left').addEventListener('click', () => playerMove(-1));
+document.getElementById('right').addEventListener('click', () => playerMove(1));
+document.getElementById('rotate').addEventListener('click', () => {
+  const m = player.matrix;
+  player.matrix = m[0].map((_, i) => m.map(row => row[i])).reverse();
+  if (collide(arena, player)) player.matrix = m;
+});
+document.getElementById('down').addEventListener('click', () => playerDrop());
