@@ -13,8 +13,7 @@ function drawMatrix(matrix, offset) {
   matrix.forEach((row, y) => {
     row.forEach((value, x) => {
       if (value !== 0) {
-        context.fillStyle = colors[value];
-        context.fillRect(x + offset.x, y + offset.y, 1, 1);
+        context.drawImage(images[value], x + offset.x, y + offset.y, 1, 1);
       }
     });
   });
@@ -83,8 +82,7 @@ function playerMove(dir) {
 }
 
 function draw() {
-  context.fillStyle = '#000';
-  context.fillRect(0, 0, canvas.width, canvas.height);
+  context.clearRect(0, 0, canvas.width, canvas.height);
   drawMatrix(arena, {x: 0, y: 0});
   drawMatrix(player.matrix, player.pos);
 }
@@ -104,36 +102,6 @@ function update(time = 0) {
   requestAnimationFrame(update);
 }
 
-document.addEventListener('keydown', event => {
-  if (event.key === 'ArrowLeft') {
-    playerMove(-1);
-  } else if (event.key === 'ArrowRight') {
-    playerMove(1);
-  } else if (event.key === 'ArrowDown') {
-    playerDrop();
-  }
-});
-
-const arena = createMatrix(12, 20);
-const player = {
-  pos: {x: 0, y: 0},
-  matrix: null,
-};
-
-const colors = [
-  null,
-  '#FF69B4',
-  '#FFD700',
-  '#00FFFF',
-  '#FF4500',
-  '#ADFF2F',
-  '#1E90FF',
-  '#BA55D3'
-];
-
-playerReset();
-update();
-
 document.getElementById('left').addEventListener('click', () => playerMove(-1));
 document.getElementById('right').addEventListener('click', () => playerMove(1));
 document.getElementById('rotate').addEventListener('click', () => {
@@ -142,3 +110,19 @@ document.getElementById('rotate').addEventListener('click', () => {
   if (collide(arena, player)) player.matrix = m;
 });
 document.getElementById('down').addEventListener('click', () => playerDrop());
+
+const arena = createMatrix(12, 20);
+const player = {
+  pos: {x: 0, y: 0},
+  matrix: null,
+};
+
+const images = [null];
+for (let i = 1; i <= 7; i++) {
+  const img = new Image();
+  img.src = 'block' + i + '.png';
+  images[i] = img;
+}
+
+playerReset();
+update();
