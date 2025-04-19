@@ -1,7 +1,7 @@
 
 const canvas = document.getElementById("tetris");
 const ctx = canvas.getContext("2d");
-const blockSize = 32;
+const blockSize = 64;
 
 const blockImages = {
   T: new Image(),
@@ -37,3 +37,5 @@ document.getElementById("down").onclick = () => console.log("Move Down");
 document.getElementById("rotate").onclick = () => console.log("Rotate Block");
 
 window.onload = startGame;
+
+document.addEventListener('DOMContentLoaded', () => startGame());

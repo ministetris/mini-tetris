@@ -37,3 +37,19 @@ canvas {
   margin: 8px;
   cursor: pointer;
 }
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.btn {
+  width: 80px;
+  height: 80px;
+  margin: 6px;
+}
+canvas {
+  display: block;
+  margin: 0 auto;
+}
