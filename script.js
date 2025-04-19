@@ -1,7 +1,7 @@
 
 const canvas = document.getElementById("tetris");
 const ctx = canvas.getContext("2d");
-const blockSize = 40;
+const blockSize = 32;
 
 const blockImages = {
   T: new Image(),
@@ -19,19 +19,23 @@ blockImages.O.src = "block_o.png";
 blockImages.Z.src = "block_z.png";
 blockImages.DOT.src = "block_dot.png";
 
-// Demo block draw
-blockImages.T.onload = () => {
-  drawBlock("T", 2, 2);
-  drawBlock("I", 3, 3);
-  drawBlock("L", 4, 1);
-};
-
 function drawBlock(type, x, y) {
   ctx.drawImage(blockImages[type], x * blockSize, y * blockSize, blockSize, blockSize);
 }
 
-// Button actions
+// 초기화
+function startGame() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawBlock("T", 3, 0);
+  drawBlock("I", 5, 2);
+  drawBlock("O", 4, 4);
+}
+
+// 버튼 반응
 document.getElementById("left").onclick = () => console.log("Move Left");
 document.getElementById("right").onclick = () => console.log("Move Right");
 document.getElementById("down").onclick = () => console.log("Move Down");
-document.getElementById("rotate").onclick = () => console.log("Rotate Block");
+document.getElementById("rotate").onclick = () => console.log("Rotate");
+
+// 시작
+window.onload = startGame;
