@@ -23,19 +23,16 @@ function drawBlock(type, x, y) {
   ctx.drawImage(blockImages[type], x * blockSize, y * blockSize, blockSize, blockSize);
 }
 
-// 초기화
 function startGame() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawBlock("T", 3, 0);
+  drawBlock("T", 4, 0);
+  drawBlock("L", 6, 1);
   drawBlock("I", 5, 2);
-  drawBlock("O", 4, 4);
 }
 
-// 버튼 반응
 document.getElementById("left").onclick = () => console.log("Move Left");
 document.getElementById("right").onclick = () => console.log("Move Right");
 document.getElementById("down").onclick = () => console.log("Move Down");
-document.getElementById("rotate").onclick = () => console.log("Rotate");
+document.getElementById("rotate").onclick = () => console.log("Rotate Block");
 
-// 시작
 window.onload = startGame;
