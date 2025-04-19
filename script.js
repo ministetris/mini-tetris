@@ -25,9 +25,10 @@ function drawBlock(type, x, y) {
 
 function startGame() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawBlock("T", 4, 0);
-  drawBlock("L", 6, 1);
-  drawBlock("I", 5, 2);
+  drawBlock("T", 3, 5);
+  drawBlock("I", 5, 6);
+  drawBlock("L", 6, 5);
+  drawBlock("O", 4, 7);
 }
 
 document.getElementById("left").onclick = () => console.log("Move Left");
