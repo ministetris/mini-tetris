@@ -1,1 +1,31 @@
-body {background: url('bg.png') center center no-repeat;background-size: cover;margin: 0;display: flex;flex-direction: column;align-items: center;height: 100vh;}canvas {border: 6px solid #fff;background-color: rgba(0, 0, 0, 0.8);box-shadow: 0 0 20px #fff;margin-top: 20px;}.mobile-buttons {display: flex;justify-content: center;gap: 16px;margin-top: 20px;}.mobile-buttons button {background: none;border: none;}
+body {
+  margin: 0;
+  background: url('bg.png') center center no-repeat;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+canvas {
+  background-color: transparent;
+  box-shadow: 0 0 20px #000;
+}
+.mobile-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.mobile-buttons button {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mobile-buttons span {
+  font-size: 16px;
+  color: #333;
+  margin-top: 4px;
+}
